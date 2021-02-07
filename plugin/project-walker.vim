@@ -6,6 +6,9 @@ if exists("g:vim_project_walker_loaded")
   finish
 endif
 
+let s:old_cpo = &cpoptions
+set cpoptions&vim
+
 let g:vim_project_walker_loaded = 1
 
 " Trying out some things here. This is more of a functional programming
@@ -122,3 +125,5 @@ function! s:NavigateToProject(project)
   endif
 endfunction
 
+let &cpoptions = s:old_cpo
+unlet s:old_cpo
