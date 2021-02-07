@@ -22,11 +22,11 @@ function! s:ProjectMenu()
   let path = s:GetCurentPath()
   bot new
   execute "e " . path
+  set syntax=project_walker
   if exists('g:project_walker_jump_nmap')
     let nmap = g:project_walker_jump_nmap
   else 
     let nmap = '<CR>'
-    echom nmap
   endif
     execute 'nnoremap <buffer> ' . nmap . " :call <SID>LineNavigate()<CR>"
 endfunction
